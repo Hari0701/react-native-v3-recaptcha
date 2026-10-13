@@ -1,39 +1,45 @@
 {
   "name": "react-native-v3-recaptcha",
-  "version": "1.0.7",
-  "description": "Custom fork of react-native-recaptchav3 compatible with modern react-native-webview versions",
+  "version": "1.1.0",
+  "description": "Invisible Google reCAPTCHA v3 for React Native, compatible with modern react-native-webview (fork of react-native-recaptchav3)",
+  "keywords": ["react-native", "recaptcha", "recaptcha-v3", "captcha", "webview"],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "yarn build -watch",
     "build": "tsc",
-    "compile": "npm run build",
-    "test": "jest"
+    "clean": "rm -rf dist",
+    "dev": "tsc --watch",
+    "test": "npm run clean && npm run build && node --test dist/*.test.js",
+    "prepare": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hari0701/react-native-v3-recaptcha.git"
+    "url": "git+https://github.com/Hari0701/react-native-v3-recaptcha.git"
   },
   "author": "Hariharan <hari07.at@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hari0701/react-native-v3-recaptcha/issues"
+    "url": "https://github.com/Hari0701/react-native-v3-recaptcha/issues"
   },
-  "homepage": "https://github.com/hari0701/react-native-v3-recaptcha#readme",
+  "homepage": "https://github.com/Hari0701/react-native-v3-recaptcha#readme",
   "devDependencies": {
+    "@types/node": "^20.0.0",
     "@types/react": "^18.2.6",
     "react": "^18.2.0",
     "react-native": "^0.73.7",
+    "react-native-webview": "^13.8.0",
     "typescript": "^5.1.0"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-native": "*",
-    "react-native-webview": "*"
+    "react": ">=17",
+    "react-native": ">=0.64",
+    "react-native-webview": ">=11"
   },
   "files": [
     "dist",
+    "!dist/**/*.test.*",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ]
 }
